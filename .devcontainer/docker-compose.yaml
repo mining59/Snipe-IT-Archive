@@ -1,0 +1,62 @@
+version: "3.9"
+services:
+  cli:
+    container_name: cli
+    networks:
+      - codespaces
+    image: modamod/php7.4-cli
+    volumes:
+      - ..:/workspaces/snipe-it
+    env_file:
+    - .env.docker
+    depends_on:
+      - mariadb
+
+
+  fpm:
+    container_name: fpm
+    networks:
+      - codespaces
+    image: modamod/php7.4-fpm
+    volumes:
+      - ..:/workspaces/snipe-it
+    user: 1000:1000
+    env_file:
+    - .env.docker
+    ports:
+      - "9000:9000"
+
+  nginx:
+    container_name: nginx
+    networks:
+      - codespaces
+    build: nginx
+    volumes:
+      - ..:/workspaces/snipe-it
+    depends_on:
+      - fpm
+    env_file:
+    - .env.docker
+    ports:
+      - "8000:8000"
+
+
+  mariadb:
+    container_name: mariadb
+    networks:
+      - codespaces
+    image: mariadb:latest
+    env_file:
+    - .env.docker
+    ports:
+      - "3306:3306"
+
+  redis:
+    container_name: redis
+    networks:
+      - codespaces
+    image: redis:6.2-alpine
+
+
+networks:
+  codespaces: {}

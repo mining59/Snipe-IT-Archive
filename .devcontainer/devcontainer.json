@@ -1,0 +1,21 @@
+{
+    "name": "Snipe-it",
+    "service": "cli",
+    "remoteUser": "user",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspaces/snipe-it",
+    "dockerComposeFile": "docker-compose.yaml",
+    // "forwardPorts": [8000],
+
+    "extensions": [
+        "coenraads.bracket-pair-colorizer-2",
+        "cschleiden.vscode-github-actions",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "ms-vsliveshare.vsliveshare",
+        "vscode-icons-team.vscode-icons",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "postStartCommand": "sh /workspaces/snipe-it/.devcontainer/bash/startup.sh"
+}

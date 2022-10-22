@@ -35,6 +35,7 @@ public/uploads/consumables/*
 public/uploads/companies/*
 public/uploads/categories/*
 public/uploads/users/*
+public/vendor/*
 storage/app/private_uploads/users/*
 public/uploads/departments/*
 storage/debugbar/
@@ -65,3 +66,4 @@ _ide_helper_models.php
 /.phplint-cache
 storage/ldap_client_tls.cert
 storage/ldap_client_tls.key
+.devcontainer/.db/

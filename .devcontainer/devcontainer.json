@@ -5,7 +5,7 @@
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspaces/snipe-it",
     "dockerComposeFile": "docker-compose.yaml",
-    // "forwardPorts": [8000],
+    "forwardPorts": ["nginx:8000", "mariadb:3306"],
 
     "extensions": [
         "coenraads.bracket-pair-colorizer-2",
